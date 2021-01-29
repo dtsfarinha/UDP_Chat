@@ -94,9 +94,9 @@ int main(int argc, char *argv[]) {
         }
 
         for(int i = 0 ; i <= max_fd ; i++) {
-            if(FD_ISSET(i, &tmp_fds)) {                                     // Did we wake up from this socket 
+            if(FD_ISSET(i, &tmp_fds)) {                                      
                 bzero(buffer, sizeof(buffer));                              // Clean the buffer for new data
-                if (i == STDIN) {                                           // Is this the keyboard?
+                if (i == STDIN) {                                           // This the keyboard
                     if(fgets(buffer, MAXLINE, stdin) == NULL){
                         close(sockfd);
                         error("Problem reading from the keyboard");
